@@ -14,7 +14,6 @@ if __name__ == "__main__":
         "--scholars", nargs="+", help="List of scholars to update citation count"
     )
     args = parser.parse_args()
-    print(args.scholars)
 
     notion = Client(auth=os.getenv("NOTION_TOKEN"))
 

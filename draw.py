@@ -48,6 +48,7 @@ def draw(notion):
         )
     G.add_edges_from(edges)
 
+    # pos = graphviz_layout(G, prog="dot")
     pos = graphviz_layout(G, prog="neato")
 
     node_x = []
