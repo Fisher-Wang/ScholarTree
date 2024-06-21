@@ -60,7 +60,10 @@ def filter_scholar_names(notion: Client, names):
                 citation_update_time = datetime.datetime.fromisoformat(
                     citation_update_time
                 )
-                time_diff = citation_update_time - datetime.datetime.now().astimezone()
+                time_diff = (
+                    citation_update_time.astimezone()
+                    - datetime.datetime.now().astimezone()
+                )
                 if time_diff > datetime.timedelta(days=7):
                     names_filtered.append(name)
             else:
