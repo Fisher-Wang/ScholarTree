@@ -6,7 +6,7 @@ from scholarly import scholarly
 
 from notion_database.client import Cell, DatabaseClient
 from notion_database.enums import PROPERTY_TYPE
-from utils.safe_get import safe_get
+from utils.common import get_scholar_names, safe_get
 
 DATABASE_ID = os.getenv("NOTION_DATABASE_ID")
 
@@ -36,15 +36,6 @@ def get_citations(names):
             print(f"[INFO] Cannot find scholar {name}")
 
     return rst
-
-
-def get_scholar_names(notion: Client):
-    db_rows = notion.databases.query(database_id=DATABASE_ID)
-    names = [
-        safe_get(row, "properties.Name.title.0.plain_text")
-        for row in db_rows["results"]
-    ]
-    return names
 
 
 def filter_scholar_names(notion: Client, names):

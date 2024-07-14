@@ -4,7 +4,7 @@ import networkx as nx
 import plotly.graph_objects as go
 from networkx.drawing.nx_agraph import graphviz_layout
 
-from utils.safe_get import safe_get
+from utils.common import safe_get
 
 DATABASE_ID = os.getenv("NOTION_DATABASE_ID")
 
